@@ -30,13 +30,13 @@ The simulator recorded images taken from the perspective of 3 cameras mounted at
 
 * **left**
 
-![left camera](images/left.jpg)
+![left camera](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/left.jpg)
 * **center**
 
-![center camera](images/center.jpg)
+![center camera](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/center.jpg)
 * **right**
 
-![right camera](images/right.jpg)
+![right camera](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/right.jpg)
 
 
 ## Data Preprocessing:
@@ -56,7 +56,7 @@ def img_preprocess(img):
     return img
 ```
 
-![Preprocessed Image](images/preprocessed.png)  
+![Preprocessed Image](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/preprocessed.png)  
 
 ## Image Augmentation:
 
@@ -68,16 +68,16 @@ For training, I used the following augmentation technique along with Python gene
 
 - Zooming will allow our model for better feature extraction
     *  `zoom(image)`
-        ![zoom image](images/zoomed.png)
+        ![zoom image](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/zoomed.png)
 		
 - Panning - Image pan is vertical and horizontal translation of images
 translate percentage set 10% left and right as well 10% up and down
     *  `pan(image)`
-       ![Pan image](images/panned.png)
+       ![Pan image](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/panned.png)
 	   
 - Randomly altering image brightness (lighter or darker)
    *  `img_random_brightness(image)`    
-       ![modified brightness image](images/brightness.png)
+       ![modified brightness image](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/brightness.png)
 	   
 - Flip steering angle for left to positive and right to negative,
 It would be useful to create balanced distribution of left and right angles
@@ -93,7 +93,7 @@ Code each augment will only be applied 50% on new image
     - Randomly altered brightness image 50%
     - Randomly translate image vertically 50%
 
-![augmented_image](images/augmented.png)
+![augmented_image](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/augmented.png)
 
 - Batch generator function will take input data, create defined number of augmented images with label
 - Benefit is it generates augmented images on fly avoid bottleneck memory space issue.
@@ -148,7 +148,7 @@ Images were split into train and validation set in order to measure the performa
 
 Training and validation set are balanced.
 
-![Training_Validation](images/trainLossVsValidationloss.png)
+![Training_Validation](https://github.com/alam121/Vehcile-Detection-using-HOG/blob/master/image/trainLossVsValidationloss.png)
 As for training,
 
 - I used mean squared error for the loss function to measure how close the model predicts to the given steering angle for each image.
