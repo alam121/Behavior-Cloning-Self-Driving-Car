@@ -1,11 +1,8 @@
 # Behavioral Cloning Project
 
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-
 # Project Description
----
-
-In this project, simulator was used to clone driving behavior and then trained a Convolutional Neural Network based on the data gathered by the simulator. It is a supervised regression problem between the car steering angles and the road images in front of a car.
+--
+In this project, udacity behavior cloning simulator was used to clone driving behavior and then trained a Convolutional Neural Network based on the data gathered by the simulator. It is a supervised regression problem between the car steering angles and the road images in front of a car.
 
 Those images were taken from three different camera angles (from the center, the left and the right of the car).
 
@@ -23,34 +20,10 @@ As image processing is involved, the model is using Convolutional layers for aut
 - writeup_report.md - Writeup template
 - images folder - It has images, png files that are referenced in writeup_report.md file
 
-
-### Install required python libraries, load data from github and install latest Keras version:
-I have used `imgaug` for image augmentation as it flexible and support many transformations in customized fashion.
-* I have my training data in git repo `https://github.com/samratpyaraka/Data.git`
-    * Open Linux terminal in workspace and type the following commands
-
-    '''
-		# cloning data from github repo
-		git clone https://github.com/samratpyaraka/Data.git
-		
-		#install package for data augmentation
-		pip install imgaug
-		
-		# Model was trained on google colab, colab uses the latest version of keras where as the version on the 
-		# workspace is on a lesser version.
-		pip install keras==2.2.4 
-    '''
-    
-
 # Model Design
 This section describes how the model was built.
 
-## Data Collection
-
-### Simulator settings
-The simulator was set to run at the lowest possible graphics settings. This was done to keep the CPU load low but discussions in the forums suggested that it was a good strategy to train on low resolution images.
-
-### Data collection strategy
+## Data collection 
 To collect human driving data, training mode was used on simulator. The car was driven around the track using a keyboard and mouse for about 3 laps and driving data was recorded. Then the direction was reversed and another 2 laps were recorded. In addition a few short recordings were made of tricky parts of the track. The data recorded in the reverse direction ensured that the model did not simply memorize the conditions of the forward lap and generalized well to test-time conditions. Some sharps turn were tricky and initial models were really when negotiating them. The additional recordings helped the model stay in the middle of the road.
 
 The simulator recorded images taken from the perspective of 3 cameras mounted at the front of the car at the left, center and a right of the hood. Along with these images the simulator also records the driving parameters at the instant an image was captured. These included steering angle, throttle and speed and were written to **driving_log.csv**. The images below show the same potion of the track from the left, center and right camera's perspective, respectively.
@@ -65,19 +38,6 @@ The simulator recorded images taken from the perspective of 3 cameras mounted at
 
 ![right camera](images/right.jpg)
 
-
-# Cleaning data:
-
-Training data had a hugely disproportionate instances of driving straight considering steering angle with value '0'.
-Best strategy is to drop data points above threshold from histogram plot to equalized logs.
-
-* Data points divided into 25 bins and blue line is threshold set to equalize log. Which is around 400
-
-![raw data histogram](images/allDataHistogram.png)
-
-* Data points above threshold 400 removed . Modified histogram plotting
-
-![modified data histogram](images/cleanHistogram.png)
 
 ## Data Preprocessing:
 
@@ -241,6 +201,5 @@ Epoch 10/10
 
 Car able to drive in autonomous mode video is in workspace `video.mp4`
 
-## To do:
-* Current model does not work challenge track, need to collect more data on the track and fine tune my model.
+
 
